@@ -50,14 +50,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rieg-ec/react-native-photo-picker.git"
+    "url": "git+https://github.com/grupalia/react-native-photo-picker.git"
   },
   "author": "rieg-ec <rieg.10199@gmail.com> (https://github.com/rieg-ec)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rieg-ec/react-native-photo-picker/issues"
+    "url": "https://github.com/grupalia/react-native-photo-picker/issues"
   },
-  "homepage": "https://github.com/rieg-ec/react-native-photo-picker#readme",
+  "homepage": "https://github.com/grupalia/react-native-photo-picker#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

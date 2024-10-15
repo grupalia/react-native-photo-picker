@@ -12,11 +12,14 @@ npm install react-native-photo-picker
 
 
 ```js
-import { multiply } from 'react-native-photo-picker';
+import RNPhotoPicker from 'react-native-photo-picker';
 
 // ...
-
-const result = await multiply(3, 7);
+RNPhotoPicker.launchPicker().then((result) => {
+  if (result) {
+    setImage(result);
+  }
+});
 ```
 
 
