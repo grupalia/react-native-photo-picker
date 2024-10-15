@@ -1,12 +1,12 @@
 import { NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
-  `The package 'react-native-photo-picker' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
+  `The package 'react-native-photo-picker' doesn't seem to be linked. Make sure:\n\n` +
+  Platform.select({ ios: "- You have run 'pod install'\n", android: '' }) +
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const PhotoPicker = NativeModules.PhotoPicker
+const PhotoPickerModule = NativeModules.PhotoPicker
   ? NativeModules.PhotoPicker
   : new Proxy(
       {},
@@ -17,6 +17,11 @@ const PhotoPicker = NativeModules.PhotoPicker
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return PhotoPicker.multiply(a, b);
+interface PhotoPickerInterface {
+  launchPicker(): Promise<string | null>;
 }
+
+const PhotoPicker: PhotoPickerInterface =
+  PhotoPickerModule as PhotoPickerInterface;
+
+export default PhotoPicker;
