@@ -2,9 +2,8 @@
   "name": "react-native-photo-picker",
   "version": "0.1.0",
   "description": "Provides access to Android Photo Picker",
-  "source": "./src/index.tsx",
-  "main": "./lib/commonjs/index.js",
-  "module": "./lib/module/index.js",
+  "react-native": "./src/index.tsx",
+  "main": "./src/index.tsx",
   "exports": {
     ".": {
       "import": {
@@ -89,7 +88,6 @@
     "react": "*",
     "react-native": "*"
   },
-  "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
