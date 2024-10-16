@@ -1,6 +1,6 @@
 {
   "name": "@grupalia/react-native-photo-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provides access to Android Photo Picker",
   "react-native": "./src/index.tsx",
   "main": "./src/index.tsx",
