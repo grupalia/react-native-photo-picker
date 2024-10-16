@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
-import RNPhotoPicker from 'react-native-photo-picker';
+import RNPhotoPicker, {
+  type PhotoPickerResult,
+} from 'react-native-photo-picker';
 
 export default function App() {
   const [fixed, setFixed] = useState<string | null>(null);
-  const [image, setImage] = useState<string | undefined>();
+  const [image, setImage] = useState<PhotoPickerResult | undefined>();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -22,9 +24,7 @@ export default function App() {
   function handlePress() {
     RNPhotoPicker.launchPicker().then((result) => {
       if (result) {
-        const { uri, width, height } = result;
-        console.log(width, height);
-        setImage(uri);
+        setImage(result);
       }
     });
   }
@@ -49,7 +49,7 @@ export default function App() {
         <>
           <Text style={{ marginTop: 48 }}>Selected image:</Text>
           <Image
-            source={{ uri: image }}
+            source={{ uri: image.uri }}
             style={{ width: 300, height: 300, marginTop: 64 }}
             resizeMode="cover"
           />

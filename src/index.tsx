@@ -30,4 +30,5 @@ interface PhotoPickerInterface {
 const PhotoPicker: PhotoPickerInterface =
   PhotoPickerModule as PhotoPickerInterface;
 
+export type { PhotoPickerResult, PhotoPickerInterface };
 export default PhotoPicker;
