@@ -11,8 +11,10 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "@grupalia/react-native-photo-picker": "workspace:*",
     "react": "18.3.1",
-    "react-native": "0.75.4"
+    "react-native": "0.75.4",
+    "react-native-fs": "^2.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -17,18 +17,55 @@ const PhotoPickerModule = NativeModules.PhotoPicker
       }
     );
 
+export interface ExifData {
+  // Image Data
+  DateTimeOriginal?: string;
+  Make?: string;
+  Model?: string;
+  Orientation?: string;
+  ImageWidth?: string;
+  ImageLength?: string;
+
+  // Camera Settings
+  ExposureTime?: string;
+  FNumber?: string;
+  ISOSpeedRatings?: string;
+  FocalLength?: string;
+
+  // GPS Data
+  GPSLatitude?: string;
+  GPSLatitudeRef?: string;
+  GPSLongitude?: string;
+  GPSLongitudeRef?: string;
+  GPSAltitude?: string;
+  GPSAltitudeRef?: string;
+
+  // Flash Data
+  Flash?: string;
+}
+
 interface PhotoPickerResult {
   uri: string;
   width: number;
   height: number;
+  fileSize: number;
+  exif: ExifData;
+}
+
+interface PhotoPickerOptions {
+  maxSize?: number; // max size in pixels
 }
 
 interface PhotoPickerInterface {
-  launchPicker(): Promise<PhotoPickerResult | null>;
+  launchPicker(options?: PhotoPickerOptions): Promise<PhotoPickerResult | null>;
 }
 
-const PhotoPicker: PhotoPickerInterface =
-  PhotoPickerModule as PhotoPickerInterface;
+const photoPicker: PhotoPickerInterface = {
+  launchPicker: async (options?: PhotoPickerOptions) => {
+    const opts = options || {};
+    return PhotoPickerModule.launchPicker(opts);
+  },
+};
 
-export type { PhotoPickerResult, PhotoPickerInterface };
-export default PhotoPicker;
+export type { PhotoPickerResult, PhotoPickerInterface, PhotoPickerOptions };
+export default photoPicker;

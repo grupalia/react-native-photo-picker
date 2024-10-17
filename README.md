@@ -15,13 +15,13 @@ yarn add @grupalia/react-native-photo-picker
 ## Usage
 
 
-```js
+```ts
 import RNPhotoPicker from '@grupalia/react-native-photo-picker';
 
 // ...
-RNPhotoPicker.launchPicker().then((result) => {
+RNPhotoPicker.launchPicker(options).then((result) => {
   if (result) {
-    setImage(result);
+    setImage(result.uri);
   }
 });
 ```
