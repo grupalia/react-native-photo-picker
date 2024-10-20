@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
 import RNPhotoPicker, {
   type PhotoPickerResult,

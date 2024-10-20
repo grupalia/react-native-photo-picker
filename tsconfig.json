@@ -24,6 +24,11 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "paths": {
+      "@grupalia/react-native-photo-picker": [
+        "./src/index.tsx"
+      ]
+    }
   }
 }
