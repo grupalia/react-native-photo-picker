@@ -6,35 +6,29 @@ module.exports = function withPhotoPicker(_config) {
 
     // Define the service entry that we want to add to the manifest
     const photoPickerService = {
-      service: [
+      '$': {
+        'android:name': 'com.google.android.gms.metadata.ModuleDependencies',
+        'android:enabled': 'false',
+        'android:exported': 'false',
+      },
+      'intent-filter': [
         {
-          '$': {
-            'android:name':
-              'com.google.android.gms.metadata.ModuleDependencies',
-            'android:enabled': 'false',
-            'android:exported': 'false',
-            'tools:ignore': 'MissingClass',
-          },
-          'intent-filter': [
-            {
-              action: [
-                {
-                  $: {
-                    'android:name':
-                      'com.google.android.gms.metadata.MODULE_DEPENDENCIES',
-                  },
-                },
-              ],
-            },
-          ],
-          'meta-data': [
+          action: [
             {
               $: {
-                'android:name': 'photopicker_activity:0:required',
-                'android:value': '',
+                'android:name':
+                  'com.google.android.gms.metadata.MODULE_DEPENDENCIES',
               },
             },
           ],
+        },
+      ],
+      'meta-data': [
+        {
+          $: {
+            'android:name': 'photopicker_activity:0:required',
+            'android:value': '',
+          },
         },
       ],
     };
